@@ -11,6 +11,7 @@ syntax:glob
 
 # cmake
 
+install/
 build/
 build_*/
 bld/

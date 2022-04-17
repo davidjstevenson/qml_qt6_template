@@ -19,6 +19,7 @@ qt_add_qml_module(qmlQt6
     URI gui
     VERSION 1.0
     QML_FILES main.qml
+    RESOURCES resources/image_cat_CC0.jpg
 )
 
 target_compile_definitions(qmlQt6 PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
