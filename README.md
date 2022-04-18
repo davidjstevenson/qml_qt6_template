@@ -10,6 +10,16 @@ this under any other platform.
 
 
 
+# Resources
+
+https://www.qt.io/blog/introduction-to-the-qml-cmake-api
+
+https://www.qt.io/blog/qml-modules-in-qt-6.2
+
+https://www.youtube.com/watch?v=4ji6D6UpA54
+
+
+
 # Build
 If Qt is not installed in the usual place you may need to specify CMAKE_PREFIX_PATH - either in the CMAKE gui when configuring the project
 or on the command line "-DCMAKE_PREFX_PATH=D:/Qt/6.3.0/msvc2019_64".

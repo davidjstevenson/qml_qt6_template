@@ -14,7 +14,7 @@ function(make_version_header TARGET)
 
     target_include_directories(${TARGET} PRIVATE "${CMAKE_BINARY_DIR}/include")
     configure_file(
-        "${CMAKE_SOURCE_DIR}/version/version.h.in"
+        "${CMAKE_CURRENT_SOURCE_DIR}/version/version.h.in"
         "${CMAKE_BINARY_DIR}/include/${TARGET}_version.h"
         ESCAPE_QUOTES
     )

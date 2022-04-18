@@ -14,8 +14,10 @@ Item {
 
         Text { text: "Name" }
         Text { text: appVersion.appName }
+
         Text { text: "Version" }
         Text { text: appVersion.appVersion }
+
         Text { text: "Build" }
         Text { text: appVersion.hash }
     }

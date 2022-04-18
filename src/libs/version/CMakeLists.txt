@@ -14,8 +14,7 @@ qt6_add_qml_module(${LIB_NAME}
     URI ${LIB_URI}
     VERSION 1.0
     QML_FILES
-        Version.qml
-        Something.qml
+        About.qml
     SOURCES
         version.h version.cpp
 )
