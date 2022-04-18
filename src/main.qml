@@ -1,49 +1,38 @@
 import QtQuick
 import QtQuick.Controls
-import libs.version
+import QtQuick.Window
+import Qt.labs.settings
 
-Window {
+ApplicationWindow {
     id: root
+    width: Math.round(0.8 * Screen.width)
+    height: Math.round(0.8 * Screen.height)
     visible: true
-    title: "MainWindow"
 
-    width: 1024
-    height: 768
+    title: "Title"
 
-    // use AppVersion directly
-    AppVersion {
-        id: appVersion
+    function reload() {
+        console.log("reloading...")
+        loader.source = ""
+        $App.clearComponentCache();
+        loader.source = "app.qml"
     }
 
-    Text {
-        anchors.top: parent.top
-        anchors.left: parent.left
-        text: "Application Version: " + appVersion.major + "." + appVersion.minor
-
-        MouseArea {
-            anchors.fill: parent
-            onClicked: aboutDialog.open()
-        }
+    Connections {
+        target: $App
+        onReload: root.reload()
     }
 
-    Image {
-        source: Qt.resolvedUrl("resources/image_cat_CC0.jpg")
-        anchors.centerIn: parent
-        sourceSize.width: parent.width / 2
+    Loader {
+        id: loader
+        anchors.fill: parent
+        source: "app.qml"
     }
 
-    Popup {
-        id: aboutDialog
-        x: 25
-        y: 25
-        width: parent.width - 50
-        height: parent.height - 50
-        modal: true
-        focus: true
-        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-
-        About {
-            anchors.fill: parent
-        }
+    Settings {
+        property alias x: root.x
+        property alias y: root.y
+        property alias width: root.width
+        property alias height: root.height
     }
 }

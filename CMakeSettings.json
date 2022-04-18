@@ -10,7 +10,7 @@
       "cmakeCommandArgs": "-DCMAKE_PREFIX_PATH=D:/Qt/6.3.0/msvc2019_64",
       "buildCommandArgs": "",
       "ctestCommandArgs": "",
-      "environments": [ { "QML_IMPORT_TRACE": "1" } ]
+      "environments": [ { "QML_IMPORT_TRACE": "0" } ]
     },
     {
       "name": "x64-Release",
@@ -22,7 +22,7 @@
       "buildCommandArgs": "",
       "ctestCommandArgs": "",
       "inheritEnvironments": [ "msvc_x64_x64" ],
-      "environments": [ { "QML_IMPORT_TRACE": "1" } ]
+      "environments": [ { "QML_IMPORT_TRACE": "0" } ]
     }
   ]
 }
