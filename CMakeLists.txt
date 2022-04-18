@@ -13,17 +13,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 6.3 COMPONENTS Quick Gui REQUIRED)
 
-# makes the build structure a little nicer as this puts all the qml
-# modules in one place - however this does require the following line
-# in main.cpp: engine.addImportPath(QMLPLUGIN_OUTPUT_LOCATION);
-set(QMLPLUGIN_OUTPUT_LOCATION qml)
-add_definitions(-DQMLPLUGIN_OUTPUT_LOCATION="${QMLPLUGIN_OUTPUT_LOCATION}/")
-set(QT_QML_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${QMLPLUGIN_OUTPUT_LOCATION})
-
-# this helps Qt Creator find the qml modules, though does not seam to be
-# required for the actual build
-# set(QML_IMPORT_PATH ${CMAKE_BINARY_DIR}/qml)
-
 qt_add_executable(${PROJECT_NAME} WIN32 main.cpp)
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Gui Qt6::Quick)
 
@@ -58,7 +47,6 @@ if (WIN32)
           --dir \"\${CMAKE_INSTALL_PREFIX}\"
           --no-translations
           --qmldir \"${CMAKE_BINARY_DIR}\"
-          --qmlimport \"${QT_QML_OUTPUT_DIRECTORY}\"
           --compiler-runtime
           \"$<TARGET_FILE:qmlQt6>\"
       )"

@@ -14,8 +14,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     QQmlApplicationEngine engine;
 
-    // we set QT_QML_OUTPUT_DIRECTORY, so add that as an import path too
-    engine.addImportPath(QMLPLUGIN_OUTPUT_LOCATION);
+    engine.addImportPath(":/");
     const auto url = QUrl(u"qrc:/gui/main.qml"_qs);
 
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
